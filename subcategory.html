@@ -209,10 +209,10 @@
   <!-- tabs -->
   <div class="tabs" id="tabs">
     <div class="tab" data-key="all">All</div>
-    <div class="tab inactive" data-key="backpacks">Backpacks</div>
-    <div class="tab inactive" data-key="laptopbags">Laptop Bags</div>
-    <div class="tab inactive" data-key="travelbags">Travel Bags</div>
-    <div class="tab inactive" data-key="wallets">Wallets</div>
+    <div class="tab inactive" data-key="backpacks">Vegtables</div>
+    <div class="tab inactive" data-key="laptopbags">Fruits</div>
+    <div class="tab inactive" data-key="travelbags">Chopped Veggies</div>
+    <div class="tab inactive" data-key="wallets">Seaonal</div>
   </div>
 <div id="subTabs" style="
     display:flex;
@@ -317,44 +317,112 @@ function loadSubTabs() {
 const PRODUCTS = [
   {
     id:1,
-    brand:"F-GEAR",
-    title:"Colourblock 16\" Laptop Backpack",
-    price:388,
-    old:1195,
-    offer:"74% OFF",
-    img:"https://images.unsplash.com/photo-1600180758893-9b7b6b3e87d7?q=80&w=800&auto=format&fit=crop&crop=faces"
+    brand:"Fresh Farm",
+    title:"Fresh Tomatoes (1kg)",
+    type:"vegetables",
+    price:1.80,
+    old:2.20,
+    offer:"18% OFF",
+    img:"https://images.pexels.com/photos/1435908/pexels-photo-1435908.jpeg"
   },
   {
     id:2,
-    brand:"F-GEAR",
-    title:"Brand Print Backpack with Adjustable Shoulder Straps",
-    price:479,
-    old:1198,
-    offer:"60% OFF",
-    img:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=800&auto=format&fit=crop"
+    brand:"Green Valley",
+    title:"Red Onions (1kg)",
+    type:"vegetables",
+    price:1.20,
+    old:1.60,
+    offer:"25% OFF",
+    img:"https://images.pexels.com/photos/616404/pexels-photo-616404.jpeg"
   },
   {
     id:3,
-    brand:"F-GEAR",
-    title:"Casual Mini Backpack",
-    price:699,
-    old:1499,
-    offer:"53% OFF",
-    img:"https://images.unsplash.com/photo-1592878849120-2b8b3e6f1f88?q=80&w=800&auto=format&fit=crop"
+    brand:"Organic Farm",
+    title:"Carrots (1kg)",
+    type:"vegetables",
+    price:1.50,
+    old:1.90,
+    offer:"21% OFF",
+    img:"https://images.pexels.com/photos/616401/pexels-photo-616401.jpeg"
   },
   {
     id:4,
-    brand:"F-GEAR",
-    title:"Kids School Backpack",
-    price:399,
-    old:899,
-    offer:"55% OFF",
-    img:"https://images.unsplash.com/photo-1600180758893-9b7b6b3e87d7?q=80&w=800&auto=format&fit=crop&crop=faces"
+    brand:"SomFresh",
+    title:"Bell Peppers Mixed (500g)",
+    type:"vegetables",
+    price:1.90,
+    old:2.40,
+    offer:"20% OFF",
+    img:"https://images.pexels.com/photos/4198023/pexels-photo-4198023.jpeg"
   },
-  // duplicate to show grid
-  { id:5, brand:"Xyz", title:"Multi Pocket Travel Bag", price:899, old:1999, offer:"55% OFF", img:"https://images.unsplash.com/photo-1513708928673-7c3f9d5d6b25?q=80&w=800&auto=format&fit=crop" },
-  { id:6, brand:"Acme", title:"Sleek Laptop Sleeve 15\"", price:299, old:699, offer:"57% OFF", img:"https://images.unsplash.com/photo-1526178615886-3ba9b2f6f4e6?q=80&w=800&auto=format&fit=crop" }
+
+  // Fruits
+  {
+    id:5,
+    brand:"Tropical Farm",
+    title:"Bananas (1kg)",
+    type:"fruits",
+    price:1.10,
+    old:1.40,
+    offer:"20% OFF",
+    img:"https://images.pexels.com/photos/4198044/pexels-photo-4198044.jpeg"
+  },
+  {
+    id:6,
+    brand:"Fresh Orchard",
+    title:"Apples Red (1kg)",
+    type:"fruits",
+    price:2.10,
+    old:2.60,
+    offer:"19% OFF",
+    img:"https://images.pexels.com/photos/102104/pexels-photo-102104.jpeg"
+  },
+
+  // Chopped Veggies
+  {
+    id:7,
+    brand:"KitchenReady",
+    title:"Chopped Onions (250g)",
+    type:"chopped",
+    price:0.90,
+    old:1.10,
+    offer:"18% OFF",
+    img:"https://images.pexels.com/photos/4198024/pexels-photo-4198024.jpeg"
+  },
+  {
+    id:8,
+    brand:"KitchenReady",
+    title:"Chopped Mixed Veg (300g)",
+    type:"chopped",
+    price:1.40,
+    old:1.80,
+    offer:"22% OFF",
+    img:"https://images.pexels.com/photos/4198023/pexels-photo-4198023.jpeg"
+  },
+
+  // Seasonal
+  {
+    id:9,
+    brand:"Seasonal",
+    title:"Mangoes (1kg)",
+    type:"seasonal",
+    price:2.50,
+    old:3.20,
+    offer:"22% OFF",
+    img:"https://images.pexels.com/photos/52514/mango-fruit-exotic-close-52514.jpeg"
+  },
+  {
+    id:10,
+    brand:"Seasonal",
+    title:"Watermelon (Whole)",
+    type:"seasonal",
+    price:3.80,
+    old:4.50,
+    offer:"15% OFF",
+    img:"https://images.pexels.com/photos/6157055/pexels-photo-6157055.jpeg"
+  }
 ];
+
 
 /* state */
 let state = {
