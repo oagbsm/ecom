@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grocery UI Clone</title>
+
+<style>
+/* ===== BASE ===== */
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#ffffff;
+}
+
+/* ===== HEADER ===== */
+.header{
+    background:#0a7cff;
+    padding:12px;
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.search-bar{
+    display:flex;
+    align-items:center;
+    background:#fff;
+    border-radius:8px;
+    padding:8px;
+}
+.search-bar input{
+    border:none;
+    flex:1;
+    font-size:16px;
+    outline:none;
+}
+.cart{
+    margin-left:8px;
+    font-size:20px;
+}
+
+/* ===== CATEGORY STRIP ===== */
+.category-strip{
+    display:flex;
+    overflow-x:auto;
+    gap:12px;
+    background:#fff;
+    padding:12px;
+    position:sticky;
+    top:60px;
+    z-index:90;
+    border-bottom:1px solid #ddd;
+}
+.category-item{
+    flex-shrink:0;
+    padding:6px 14px;
+    border-radius:20px;
+    background:#eaeaea;
+    cursor:pointer;
+    white-space:nowrap;
+    font-size:14px;
+    text-align:center;
+}
+.category-item.active{
+    background:#0a7cff;
+    color:#fff;
+}
+
+.cat-img{
+    width:32px;
+    height:32px;
+    border-radius:50%;
+    background:#ddd;
+    margin:0 auto 4px auto;
+}
+
+/* ===== SECTIONS ===== */
+.section{
+    padding:16px;
+    margin-top:20px;
+}
+h2{
+    margin-bottom:12px;
+    font-size:20px;
+}
+
+/* ===== SUBCATEGORY GRID ===== */
+.subcat-list{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);   /* Default: 4 columns */
+    gap:14px;
+}
+
+/* Tablets */
+@media (max-width:900px){
+    .subcat-list{
+        grid-template-columns:repeat(4,1fr);  /* Still 4 columns */
+    }
+}
+
+/* Phones */
+@media (max-width:600px){
+    .subcat-list{
+        grid-template-columns:repeat(4,1fr);  /* Phones also 4 columns */
+    }
+    .subcat-img{
+        width:52px;
+        height:52px;
+    }
+    h2{
+        font-size:18px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="header">
+    <div class="search-bar">
+        <input type="text" placeholder="Groceries" />
+        
+        <div class="cart">🛒</div>
+    </div>
+</header>
+
+<!-- CATEGORY STRIP -->
+<nav class="category-strip" id="categoryNav"></nav>
+
+<!-- CONTENT -->
+<main id="main"></main>
+
+<script>
+/* ===== DATA ===== */
+const data=[
+    {name:'Best Deals',subs:['Top Offers','Discounts','Combo Packs','Flash Sale','Beverages','Snacks','Healthy','Kids','Party','Seasonal']},
+    {name:'Electronics',subs:['Mobiles','Accessories','Chargers','Headphones','Speakers','Cables','Power Banks','Home Appliances','LED','Computers']},
+    {name:'Fashion',subs:['Men','Women','Kids','Shoes','Bags','Accessories','Traditional','Sports','Winter','Summer']},
+    {name:'Home & Lifestyle',subs:['Cleaning','Decor','Bed & Bath','Kitchen','Storage','Tools','Lighting','Gardening','Pet','Candles']},
+    {name:'Groceries',subs:['Rice','Flour','Oil','Sugar','Salt','Spices','Pulses','Cereals','Noodles','Cooking Sauces']},
+    {name:'Fruits & Veg',subs:['Fresh Fruits','Leafy','Roots','Citrus','Exotic','Frozen','Herbs','Seasonal','Organic','Packaged']},
+    {name:'Baby Care',subs:['Diapers','Wipes','Milk','Food','Bath','Health','Toys','Clothes','Accessories','Safety']},
+    {name:'Health',subs:['Vitamins','OTC','First Aid','Sports','Dental','Skincare','Hair','Men','Women','Wellness']},
+    {name:'Cleaning',subs:['Detergent','Surface','Bathroom','Kitchen','Air','Laundry','Floor','Gloves','Tools','Refills']},
+    {name:'Pets',subs:['Food','Toys','Vitamins','Grooming','Beds','Leashes','Cages','Litter','Treats','Health']}
+];
+
+/* ===== RENDER UI ===== */
+const nav=document.getElementById('categoryNav');
+const main=document.getElementById('main');
+
+data.forEach((cat,i)=>{
+    
+    // Category bubble in strip
+    const btn=document.createElement('div');
+    btn.className='category-item';
+    btn.innerHTML = `<div class='cat-img'></div><div>${cat.name}</div>`;
+
+    btn.onclick=()=>{
+        document.querySelectorAll('.category-item').forEach(x=>x.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById('sec'+i).scrollIntoView({behavior:'smooth'});
+    };
+
+    nav.appendChild(btn);
+
+    // Section block
+    const sec=document.createElement('section');
+    sec.className='section';
+    sec.id='sec'+i;
+    sec.innerHTML=`<h2>${cat.name}</h2>`;
+
+    const list=document.createElement('div');
+    list.className='subcat-list';
+
+    // Subcategories with CLICK → navigate to subcategory page
+    cat.subs.forEach(sub=>{
+        const tag=document.createElement('div');
+        tag.className='subcat';
+        tag.innerHTML = `
+            <div class='subcat-img'></div>
+            <div style='margin-top:6px;font-size:14px'>${sub}</div>
+        `;
+
+        tag.onclick = () => {
+            const url = `subcategory.html?cat=${encodeURIComponent(cat.name)}&sub=${encodeURIComponent(sub)}`;
+            window.location.href = url;
+        };
+
+        list.appendChild(tag);
+    });
+
+    sec.appendChild(list);
+    main.appendChild(sec);
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body {
+    font-family: system-ui;
+    background:#f2f2f2;
+}
+
+.app {
+    max-width: 780px;
+    background:white;
+    margin:0 auto;
+    min-height:100vh;
+}
+
+/* Header */
+
+.top-bar {
+    display:flex;
+    gap:12px;
+    padding:16px;
+    background:linear-gradient(135deg,#4a90e2,#357abd);
+}
+
+.search-box {
+    flex:1;
+}
+
+.search {
+    width:100%;
+    padding:10px;
+    border-radius:20px;
+    border:none;
+}
+
+.actions {
+    display:flex;
+    gap:10px;
+}
+
+.cart {
+    width:24px;
+    height:24px;
+    background:white;
+    border-radius:6px;
+}
+
+.user {
+    width:32px;
+    height:32px;
+    background:white;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+/* Category bar */
+
+.cats {
+    display:flex;
+    overflow-x:auto;
+    gap:8px;
+    padding:10px;
+    position:sticky;
+    top:0;
+    background:white;
+    border-bottom:1px solid #ddd;
+}
+
+.cat-btn {
+    padding:8px 12px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:13px;
+}
+
+.cat-btn.active {
+    background:#4a90e2;
+    color:white;
+}
+
+/* Sections */
+
+.section {
+    padding:14px;
+    scroll-margin-top:100px;
+}
+
+.subs {
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+}
+
+.sub {
+    border:1px solid #ccc;
+    padding:4px 8px;
+    border-radius:7px;
+}
+
+@media(max-width:480px){
+    .cat-btn{font-size:12px}
+}

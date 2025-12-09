@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Product Page</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: "Inter", Arial, sans-serif;
+    background: #f2f7ff;
+}
+
+/* HEADER */
+.header {
+    background: #0066cc;
+    color: #fff;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.header button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.header svg {
+    stroke: white;
+}
+
+.header-title {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* Product Container */
+.product-container {
+    max-width: 460px;
+    margin: auto;
+    background: #ffffff;
+    border-radius: 16px;
+    margin-top: 12px;
+    padding-bottom: 30px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+/* Top Icons */
+.top-icons {
+    display: flex;
+    justify-content: flex-end;
+    padding: 15px 20px;
+    gap: 15px;
+}
+
+.icon-btn {
+    background: #e9f1ff;
+    border: none;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+/* Product Image Section */
+.image-wrapper {
+    text-align: center;
+    background: #dceaff;
+    padding: 40px 0;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+}
+
+.image-wrapper img {
+    width: 75%;
+    max-height: 280px;
+    border-radius: 14px;
+    object-fit: cover;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+}
+
+/* Dots */
+.dots {
+    text-align: center;
+    margin-top: 12px;
+}
+
+.dot {
+    height: 8px;
+    width: 8px;
+    background-color: #b9c9e6;
+    display: inline-block;
+    border-radius: 50%;
+    margin: 0 4px;
+}
+
+.dot.active {
+    background-color: #0066cc;
+}
+
+/* Vendor Code */
+.vendor-code {
+    margin: 12px 20px;
+    color: #7a8ca9;
+    font-size: 14px;
+}
+
+/* Price */
+.price-box {
+    background: linear-gradient(135deg, #0077e6, #005bbf);
+    color: white;
+    display: inline-block;
+    padding: 12px 20px;
+    margin: 15px 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 22px;
+    box-shadow: 0 4px 16px rgba(0,90,200,0.3);
+}
+
+/* Title */
+.product-title {
+    margin: 10px 20px;
+    font-size: 22px;
+    font-weight: 700;
+    color: #003f80;
+}
+
+/* Description */
+.description {
+    margin: 0 20px;
+    color: #4a4a4a;
+    line-height: 1.6;
+    font-size: 15px;
+}
+
+/* Bottom Buy Section */
+.buy-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 30px 20px 0;
+}
+
+.buy-btn {
+    background: linear-gradient(135deg, #0077e6, #005bbf);
+    color: white;
+    border: none;
+    padding: 16px 40px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 600;
+    box-shadow: 0 6px 15px rgba(0,90,200,0.35);
+    transition: 0.2s;
+}
+
+.buy-btn:hover {
+    transform: translateY(-2px);
+}
+
+.cart-btn {
+    background: none;
+    border: 2px solid #0077e6;
+    color: #0077e6;
+    padding: 14px 20px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+    <button onclick="window.location.href='subcategory.html'">
+        <svg width="26" height="26" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <path d="M15 18l-6-6 6-6"></path>
+        </svg>
+    </button>
+    <div class="header-title">Product</div>
+</div>
+
+<div class="product-container">
+
+    <!-- Icons -->
+    <div class="top-icons">
+        <button class="icon-btn">&#10084;</button>
+        <a href="cart.html"><button class="icon-btn">&#128722;</button></a>
+    </div>
+
+    <!-- Product Image -->
+    <div class="image-wrapper">
+        <img alt="Brand Print Backpack" src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=800&auto=format&fit=crop">
+    </div>
+
+    <!-- Dots -->
+    <div class="dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+
+    <p class="vendor-code">Vendor code: 57467</p>
+
+    <!-- Price -->
+    <div class="price-box">$79.90</div>
+
+    <!-- Title -->
+    <h2 class="product-title">GOOD LOCAL CITY 18/19 PURPLE</h2>
+
+    <!-- Description -->
+    <p class="description">
+        The backpack is made of durable purple oxford, with one common roomy
+        compartment. The flap valve is fastened with fastex straps. It features
+        two external zipper pockets — one on the flap, the other on the front.
+    </p>
+
+    <!-- Buy Buttons -->
+    <div class="buy-section">
+        <button class="buy-btn">BUY NOW</button>
+        <a href="cart.html"><button class="cart-btn">&#128722;</button></a>
+    </div>
+
+</div>
+
+</body>
+</html>

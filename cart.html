@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cart - JioMart Style</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: "Inter", Arial, sans-serif;
+        background: #f2f7ff;
+        color: #1a1a1a;
+    }
+
+    /* HEADER */
+    .header {
+        background: #0066cc;
+        color: #fff;
+        padding: 15px 20px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+
+    .header button {
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    .header svg {
+        stroke: white;
+    }
+
+    .header-title {
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    /* Cart Container */
+    .cart-container {
+        max-width: 500px;
+        margin: auto;
+        margin-top: 15px;
+        background: white;
+        padding: 20px;
+        border-radius: 14px;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    }
+
+    h2 {
+        margin: 0 0 20px 0;
+        font-size: 22px;
+        font-weight: 600;
+        color: #004c99;
+    }
+
+    .cart-item {
+        display: flex;
+        gap: 15px;
+        padding: 15px 0;
+        border-bottom: 1px solid #eee;
+    }
+
+    .cart-item:last-child {
+        border-bottom: none;
+    }
+
+    .cart-item img {
+        width: 75px;
+        height: 75px;
+        border-radius: 10px;
+        object-fit: cover;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+
+    .cart-details {
+        flex: 1;
+    }
+
+    .name {
+        font-size: 15px;
+        font-weight: 600;
+        margin-bottom: 4px;
+    }
+
+    .price {
+        color: #0077e6;
+        font-weight: 700;
+        font-size: 16px;
+    }
+
+    textarea {
+        width: 100%;
+        height: 90px;
+        padding: 12px;
+        margin-top: 18px;
+        border-radius: 12px;
+        border: 1px solid #c9d9f0;
+        background: #f9fbff;
+        font-size: 14px;
+    }
+
+    textarea:focus {
+        outline: 2px solid #0077e6;
+    }
+
+    .checkout-btn {
+        width: 100%;
+        margin-top: 22px;
+        background: linear-gradient(135deg, #0077e6, #005bbf);
+        color: white;
+        padding: 16px;
+        font-size: 18px;
+        border: none;
+        border-radius: 35px;
+        cursor: pointer;
+        font-weight: 600;
+        box-shadow: 0 6px 15px rgba(0, 90, 200, 0.35);
+        transition: 0.2s;
+    }
+
+    .checkout-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 18px rgba(0, 90, 200, 0.45);
+    }
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER WITH BACK BUTTON -->
+<div class="header">
+    <button onclick="window.location.href='index.html'">
+        <svg width="26" height="26" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <path d="M15 18l-6-6 6-6"></path>
+        </svg>
+    </button>
+    <div class="header-title">Your Cart</div>
+</div>
+
+<!-- CART BOX -->
+<div class="cart-container">
+
+    <h2>Review Items</h2>
+
+    <div id="cart-items">
+
+        <div class="cart-item">
+            <img src="https://via.placeholder.com/80" alt="">
+            <div class="cart-details">
+                <div class="name">Good Local City 18/19 Purple</div>
+                <div class="price">$79.90</div>
+            </div>
+        </div>
+
+        <div class="cart-item">
+            <img src="https://via.placeholder.com/80" alt="">
+            <div class="cart-details">
+                <div class="name">Urban Pro Travel Bag</div>
+                <div class="price">$45.00</div>
+            </div>
+        </div>
+
+    </div>
+
+    <textarea id="extraMessage" placeholder="Add delivery instructions, address, preferences..."></textarea>
+
+    <button class="checkout-btn" onclick="checkout()">Checkout</button>
+
+</div>
+
+<script>
+function checkout() {
+
+    let items = document.querySelectorAll('.cart-item');
+    let userMsg = document.getElementById('extraMessage').value;
+
+    let message = "🛒 *New Order:*\n\n";
+
+    items.forEach((item, index) => {
+        let name = item.querySelector('.name').innerText;
+        let price = item.querySelector('.price').innerText;
+
+        message += `${index+1}. ${name} - ${price}\n`;
+    });
+
+    message += `\n📝 *Customer note:*\n${userMsg}`;
+
+    let encoded = encodeURIComponent(message);
+
+    // Your WhatsApp number
+    let phone = "+252610647045";
+
+    window.open(`https://wa.me/${phone}?text=${encoded}`, "_blank");
+}
+</script>
+
+</body>
+</html>
